@@ -1,0 +1,38 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'com.github.1980suciono'
+
+version = '1.0.0'
+
+jar {
+    archiveBaseName = 'SimpleExplorer'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+	maven { url 'https://jitpack.io' } 
+	
+}
+
+dependencies {
+
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
